@@ -1,0 +1,232 @@
+:root {
+  --bg-color: #f8f9fa;
+  --primary-color: #ff6f61;
+  --primary-hover: #e65c50;
+  --active-bg: #ffe0dc;
+  --text-color: #343a40;
+  --secondary-text: #6c757d;
+  --light-bg: #ffffff;
+  --border-color: #e9ecef;
+  --safe: #28a745;
+  --warning: #ffc107;
+  --danger: #dc3545;
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 450px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.alert {
+  visibility: hidden;
+  margin-bottom: 1rem;
+  background: var(--primary-color);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--light-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.top-bar .password {
+  font-size: 1.25rem;
+  font-weight: 600;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  max-width: calc(100% - 2.5rem); 
+  margin-left: 0.5rem; 
+  flex-shrink: 0; 
+}
+
+.top-bar .copy-btn {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.form-container {
+  margin-top: 1.5rem;
+  background-color: var(--light-bg);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.slider-container input[type='range'] {
+  width: 100%;
+  margin-top: 0.5rem;
+  appearance: none;
+  background: var(--border-color);
+  height: 8px;
+  border-radius: 4px;
+  outline: none;
+}
+
+.interactive-toggles {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.interactive-btn {
+  flex: 1;
+  padding: 0.8rem;
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
+  color: var(--text-color);
+  background-color: var(--light-bg);
+  transition: all 0.3s ease-in-out;
+  font-weight: 600;
+}
+
+.interactive-btn.active {
+  background-color: var(--active-bg);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  transform: scale(1.1);
+}
+
+.interactive-btn:hover {
+  background-color: var(--primary-hover);
+  color: #fff;
+}
+
+.strength-meter {
+  margin-top: 1rem;
+}
+
+.strength-meter .bars {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.strength-meter .bars .bar {
+  flex: 1;
+  height: 12px;
+  background: var(--border-color); 
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Weak strength */
+.strength-meter .bars .bar.active-danger {
+  background-color: var(--danger);
+}
+
+/* Medium strength */
+.strength-meter .bars .bar.active-warning {
+  background-color: var(--warning);
+}
+
+/* Strong strength */
+.strength-meter .bars .bar.active-safe {
+  background-color: var(--safe);
+}
+
+
+.submit-btn {
+  display: block;
+  width: 85%; 
+  font-size: 1rem; 
+  font-weight: 800; 
+  text-transform: uppercase;
+  padding: 0.8rem; 
+  border: 2px solid var(--primary-color);
+  border-radius: 15px;
+  background-color: var(--primary-color);
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto; 
+}
+
+.submit-btn:hover {
+  background-color: var(--primary-hover);
+  transform: scale(1.00); 
+  box-shadow: 0 4px 15px rgba(255, 111, 97, 0.5); 
+}
+
+.submit-btn:active {
+  transform: scale(0.98); 
+  box-shadow: none;
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 300%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-45deg);
+  transition: all 0.4s ease-in-out;
+}
+
+.submit-btn:hover::before {
+  left: 100%;
+}
+
+.history-container {
+  margin-top: 2rem;
+  background-color: var(--light-bg);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  max-height: 150px;
+}
+
+.history-container h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  max-height: 100px;
+}
+
+.history-list li {
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.9rem;
+  word-break: break-word;
+}
+
+.history-list li:last-child {
+  border-bottom: none;
+}
